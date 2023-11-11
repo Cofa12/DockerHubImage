@@ -10,5 +10,6 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: "test the yaml file"
-        run: pwd
+      - uses: actions/checkout@v3
+      - name: "Printing the files"
+        run: ls
