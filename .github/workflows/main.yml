@@ -13,3 +13,12 @@ jobs:
       - uses: actions/checkout@v3
       - name: "Printing the files"
         run: ls
+
+      - name: "Login to the Docker Hub"
+        run: docker login -u ${{ secrets.DOCKER_USERNAME}} -p ${{ secrets.PASSWORD}}
+
+      - name: "Building the image"
+        run: docker build -t ${{ secrets.DOCKER_USERNAME}}/gitHubTest
+
+      - name:  "Pushing to the docker hub"
+        run: docker push ${{ secrets.DOCKER_USERNAME}}/gitHubTest
